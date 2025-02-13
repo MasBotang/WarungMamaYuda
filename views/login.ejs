@@ -1,0 +1,38 @@
+    <div class="container">
+        <div class="row my-5 d-flex flex-row justify-content-evenly">
+            <div class="col-6 my-5">
+                <img src="img/Hero-img.png" style="width: 500px;" alt="">
+                <h1 class="fs-4 mt-5 text-uppercase text-orange" style="font-weight: 900;">Belanja Jajanan Jadi Mudah dan Cepat, 
+                    seperti di Warung Tetangga!</h1>
+                <p>Dijamin cepat, aman, dan selalu segar.<br>
+                    Warung Mama Yuda, solusi ngemil tanpa ribet!
+                </p>
+            </div>
+            <div class="col-5 px-4 d-flex flex-column justify-content-center" style="border: 3px solid #ff5d00; border-radius: 10px; width: 534px;">
+                <form action="/login" method="POST" id="form-login">
+                    <div class="logo text-center">
+                        <img src="img/logo.png" alt="Logo">
+                    </div>
+                    <div class="mt-5">
+                        <input type="text" name="username" class="form-control login-style" aria-describedby="emailHelp" placeholder="Username" required>                    </div>
+                    <div class="mb-1 mt-4">
+                        <input type="password" name="password" class="form-control login-style" placeholder="Password" required>
+                    </div>
+                    <div class="mb-3 text-end">
+                        <a class="text-decoration-none text-reset" style="font-size: 12px;" href="#">Lupa Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 my-3 login-style2">Masuk</button>
+                    <p class="text-center my-2">atau</p>
+                    <button type="submit" class="btn btn-primary w-100 my-3 login-style2">
+                        <img src="img/icon-google.png" alt="Google Icon" style="width: 25px; height: 25px; margin-right: 5px;">
+                        Masuk dengan Google
+                    </button>
+                    <button class="btn my-2 text-reset d-flex justify-content-center" style="font-size: 12px; border: none; background: none; margin-left: auto; margin-right: auto;" onclick="window.location.href='/registrasi';">
+                        Belum punya akun? Daftar Sekarang!
+                    </button>       
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/loginFe.js"></script>

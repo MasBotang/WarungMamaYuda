@@ -1,0 +1,100 @@
+<!-- Content Daftar Pesanan -->
+<div class="col-9" id="daftar-pesanan" style="border-left: 2px solid #FFD700; height: 100vh;">
+    <div class="row mb-3 ms-3 mt-5" style="white-space: nowrap;" id="status-pesanan">
+        <div class="col-2 ms-4">
+            <a href="/semua-pesanan" class=" btn-order w-100 text-orange">Semua Pesanan</a>
+        </div>
+        <div class="col-2 ms-4">
+            <a href="/dashboard-admin" class=" btn-order w-100 text-orange" id="pesanan-baru">Pesanan Baru</a>
+        </div>
+        <div class="col-2 ms-4">
+            <a href="/siap-dikirim" class="btn-order w-100 text-orange" id="siap-dikirim">Siap Dikirim</a>
+        </div>
+        <div class="col-2 ms-4">
+            <a href="/siap-diambil" class="btn-order w-100 text-orange fw-bold border-bot active" id="siap-diambil">Siap Diambil</a>
+        </div>
+        <div class="col-2 ms-5">
+            <a href="/pesanan-selesai" class="btn-order w-100 text-orange" id="pesanan selesai">Pengiriman Selesai</a>
+        </div>
+    </div>
+    <!-- Pengiriman -->
+    <div class="row ms-4" id="pengiriman">
+        <div class="col-2 ms-4">
+            <a class="btn-pengiriman w-100 text-orange fw-bold" style="text-decoration: none;">Ambil Sendiri</a>
+        </div>
+        <div class="col-2 ms-4 ps-4">
+            <a class="w-100 text-muted" style="text-decoration: none; ">Diantar</a>
+        </div>
+    </div>
+    <!-- SelectAll -->
+    <div class="checkbox-container ms-5 mt-4 d-flex align-items-center">
+        <input type="checkbox" id="selectAll" class="form-check-input mx-2 my-auto">
+        <label for="selectAll" class="form-check-label text-orange" style="cursor: pointer;">Pilih Semua</label>
+    </div>
+    <!-- Pesanan -->
+<% Object.values(orders).forEach(function(group) { %>
+    <% if (group[0].status === 'Siap Diambil') { %> <!-- Check if the status is 'Pesanan Baru' -->                       
+     <div class="row ms-5 mt-3 mb-5">
+        <div class="col-12 px-4 py-3 shadow-sm" style="background-color: #fff1c1; border-radius: 10px;">
+            <div class="d-flex justify-content-between align-items-start mb-2 py-2" style="border-bottom: 3px solid #fff; width: 100%; " >
+                <div>
+                    <input type="checkbox" id="pesanan-<%= group[0].id %>" class="form-check-input me-2" >
+                    <label for="pesanan-<%= group[0].order_id %>" class="form-check-label text-orange fw-bold" style="cursor: pointer;">
+                        <%= group[0].status %>
+                        <span class="text-muted">/ <%= group[0].nama_customer %> /</span>
+                        <span class="text-muted"><%= group[0].created_at.toISOString().split('T')[0] %></span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Columns for Detail Produk, Alamat, Aksi, and Total -->
+            <div class="row mt-4 px-3 mb-3">
+                <div class="col-6 ps-3">
+                    <!-- Detail Produk -->
+                    <h3 class="fw-bold nunito" style="font-size: medium;">Detail Produk</h3>
+                    <div class="mt-3">
+                        <% group.forEach(function(order) { %>
+                        <div class="d-flex align-items-center mb-3">
+                            <img src="<%= order.foto_path %>" alt="Produk" style="width: 50px; height: 50px; object-fit: cover; border-radius: 5px;">
+                            <div class="ms-3">
+                                <span class="fw-bold text-orange" style="font-size: medium;"><%= order.product_name %></span><br>
+                                <span class="text-muted">Rp <%= order.harga.toLocaleString() %> x <%= order.quantity %></span>
+                            </div>
+                        </div>
+                        <% }) %>
+                        <button class="btn btn-primary fw-bold mt-4 custom-hover" 
+                            id="btn-pesananSelesai" 
+                            style="background-color: #ff8c00; border: none; font-size: small;"
+                            data-order-id="<%= group[0].id %>"
+                            data-status="<%= group[0].status %>">
+                            Pesanan Selesai
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-4 ps-3">
+                    <!-- Alamat dan Aksi -->
+                    <div class="d-flex flex-column justify-content-center">
+                        <div>
+                            <span class="fw-bold" style="font-size: medium;">Alamat</span><br>
+                            <span><%= group[0].alamat %></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2 d-flex flex-column justify-content-between align-items-end ps-2">
+                    <div>
+                        <span class="fw-bold" style="font-size: medium; white-space: nowrap;">Jenis Pengiriman</span><br>
+                        <span><%= group[0].jenis_pengiriman || 'Ambil Sendiri' %></span>
+                    </div>
+                    <div>
+                        <span class="fw-bold" style="font-size: medium;">Total</span>
+                        <span class="fw-bold text-orange">Rp <%= group.reduce((total, order) => total + (order.harga * order.quantity), 0).toLocaleString() %></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>
+<% }) %>
+</div>

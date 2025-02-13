@@ -1,0 +1,77 @@
+<!-- Sidebar -->
+<div class="col-3 d-flex flex-column text-center" style="border-right: 2px solid #FFD700;">
+    <div class="d-flex flex-column align-items-start ms-5">
+        <a href="/dashboard-admin" class="text-orange fw-bold mt-5 bg-transparent p-2" style="text-decoration: none; border: none; min-width: 135px;" id="btn-daftar-pesanan">Daftar Pesanan</a>
+        <a href="/daftar-produk" class="text-orange fw-bold mt-5 bg-transparent p-2" style="text-decoration: none; border: none; min-width: 135px;" id="btn-daftar-produk">Daftar Produk</a>
+        <a href="/tambah-produk" class="text-orange fw-bold mt-5 bg-transparent p-2 btn-active" style="text-decoration: none; border: none; min-width: 135px;" id="btn-tambah-produk">Tambah Produk</a>
+    </div>
+</div>
+
+<!-- Tambah Produk -->
+<div class="col-9 mb-5 pb-5" id="tambah-produk">
+    <div class="alert alert-success text-center w-50 mx-auto mt-3 h-custom" style="visibility: hidden;" role="alert" id="alert-success">
+        Produk Berhasil di Tambahkan!
+    </div>
+    <form enctype="multipart/form-data"> 
+        <div class="row mb-3 d-flex align-items-end text-center mt-2" style="white-space: nowrap;">
+            <div class="col-2 mb-4 ms-5 ps-3 text-start">
+                <label for="namaProduk" class="form-label text-orange">Nama Produk</label>
+            </div>
+            <div class="col-7 mb-4 border-input">
+                <input type="text" class="form-control border-0" id="namaProduk" placeholder="Masukkan Nama Produk">
+            </div>
+        </div>
+            <div class="row mb-3 d-flex align-items-center text-center" style="white-space: nowrap;">
+            <div class="col-2 mb-4 ms-5 ps-3 text-start">
+                <label for="foto_path" class="form-label text-orange">Foto Produk</label>
+            </div>
+            <div class="col-7 mb-4 border-input">
+                <input type="file" class="form-control border-0" id="foto_path" accept="image/*">
+            </div>
+        </div>
+        <div class="row mb-3 d-flex align-items-center text-center" style="white-space: nowrap;">
+            <div class="col-2 mb-4 ms-5 ps-3 text-start">
+                <label for="hargaProduk" class="form-label text-orange">Harga</label>
+            </div>
+            <div class="col-7 mb-4 border-input">
+                <input type="text" class="form-control border-0" id="hargaProduk" placeholder="Masukkan Harga Produk">
+            </div>
+        </div>
+        <div class="row mb-3 d-flex align-items-start text-center" style="white-space: nowrap;">
+            <div class="col-2 mb-4 ms-5 ps-3 text-start">
+                <label for="deskripsiProduk" class="form-label text-orange">Deskripsi</label>
+            </div>
+            <div class="col-7 mb-4 border-input">
+                <textarea class="form-control border-0" id="deskripsiProduk" rows="3" placeholder="Masukkan Deskripsi Produk"></textarea>
+            </div>
+        </div>
+        <div class="row mb-3 d-flex align-items-center text-center" style="white-space: nowrap;">
+            <div class="col-2 mb-4 ms-5 ps-3 text-start">
+                <label for="stokProduk" class="form-label text-orange">Stok</label>
+            </div>
+            <div class="col-7 mb-4 border-input">
+                <input type="text" class="form-control border-0" id="stokProduk" placeholder="Masukkan Stok Produk">
+            </div>
+        </div>
+        <div class="row mb-3 d-flex align-items-center text-center" style="white-space: nowrap;">
+            <div class="col-2 mb-4 ms-5 ps-3 text-start">
+                <label for="kategoriProduk" class="form-label text-orange">Kategori</label>
+            </div>
+            <div class="col-7 mb-4 border-input">
+                <select class="form-select border-0" id="kategoriProduk">
+                    <option selected disabled>Pilih Kategori</option>
+                    <option value="1">Bahan Pokok</option>
+                    <option value="2">Minuman</option>
+                    <option value="3">Bumbu Dapur</option>
+                    <option value="4">Alat Mandi</option>
+                    <option value="5">Alat Kebersihan</option>
+                    <option value="6">Makanan</option>
+                    <option value=7">Alat Sekolah</option>
+                    <option value="8">Obat</option>
+                    <option value="9">Lain-lain</option>
+                </select>
+            </div>
+        </div>
+        <button type="submit" class="btn-active p-2 text-orange fw-bold d-flex ms-auto" id="save-produk">Tambah Produk</button>
+    </form>
+</div>

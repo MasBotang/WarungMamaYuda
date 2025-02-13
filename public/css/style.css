@@ -1,0 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+html, body {
+    height: 100%; 
+    margin: 0;
+}
+body {
+    font-family: 'Nunito', sans-serif;
+}
+/* Universal */
+.poppins{
+    font-family: 'poppins',sans-serif;
+}
+.nunito{
+    font-family: 'Nunito',sans-serif;
+}
+input[readonly]::placeholder{
+    color: #FF5D00;
+}
+.text-orange {
+    color: #FF6600;
+}
+.btn-orange {
+    background-color: #FF6600;
+    color: white;
+    border: none;
+}
+.btn-orange:hover {
+    background-color: #e55b00;
+}
+.input-border{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-color: #FF6600;
+    border-right: none;
+}
+.icon-border{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: #FF6600;
+    border-left: none;
+}
+.icon-border:hover{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-color: #FF6600;
+    border-left: none;
+}
+
+/* Hero-Section */
+.bg-hero{
+    background-image: url('/img/Hero-background.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 557px;
+    border-radius: 10px;
+}
+.bg-heroBackground{
+    background-image: url('/img/dashboard-background.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 557px;
+    border-radius: 10px;
+}
+.bg-icon{
+    background-color: #FFF1C1;
+    color: #FF5D00;
+}
+
+/* Kategori */
+.kategori-style{
+    color: #FF5D00;
+    font-weight: 600;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3); 
+    width: 100px;
+    max-height: 150px;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+.kategori-style:hover{
+    color: #FF5D00;
+}
+
+/* Product */
+item-style{
+    width: 253px;
+    min-height: 291px;
+}
+
+.button-item-buy{
+    background-color: #FFD700;
+    font-size: 10px;
+}
+
+/* Banner */
+.banner-sedang{
+    min-height: 205px;
+    background-image: url('/img/banner-sedang.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+    min-width: 65% !important;
+}
+.banner-kecil{
+    min-height: 205px;
+    background-image: url('/img/banner-kecil.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+}
+.banner-beras{
+    background-image: url('/img/banner-beras.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 205px;
+}
+.banner-sabun{
+    background-image: url('/img/banner-sabun.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 205px;
+}
+.banner-alatTulis{
+    background-image: url('/img/banner-alatTulis.png');
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    min-height: 205px;
+}
+
+/* Produk */
+.product-style{
+ border-radius: 10px;
+}
+.product-image {
+    height: 130px;
+    width: 240px;
+    object-fit: cover;
+    object-position: center;
+}
+.btn-kopi{
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: none;
+    background-color: #fff;
+    color: #772400 ;
+    font-size: 14px;
+}
+.btn-banner123{
+    padding: 4px 8px;
+    border-radius: 15px;
+    border: none;
+    background-color: #FF5D00;
+    color: #fff ;
+    font-size: 13px;
+}
+.btn-click:hover{
+    background-color: #f5d837;
+}
+.btn-click:active{
+    background-color: #ff0a02 !important;
+    transition: background-color 0.1s ease;
+}
+
+/* HALAMAN DAFTAR */
+.login-style{
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    color: #FF5D00;
+}
+.login-style2{
+    background-color: #FFD700;
+    border-radius: 10px;
+    color: #FF5D00;
+    border: none;
+    font-weight: bold;
+    min-height: 40px;
+}
+.login-style2:hover{
+    background-color: #FFD700;
+    color: #FF5D00;
+}
+.login-style::placeholder{
+    color: #FF5D00;
+    opacity: 1;
+}
+.login-style2::placeholder{
+    color: #FF5D00;
+    opacity: 1;
+}
+.btn-daftar:focus, 
+.btn-daftar:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* HALAMAN PROFILE */
+.btn-profile{
+    background-color: #FFD700;
+    border-radius: 15px;
+    color: #FF5D00;
+    border: none;
+    min-height: 35px;
+    font-size: 20px;
+}
+.btn-logout{
+    background-color: #FF5D00;
+    border-radius: 15px;
+    color: #FFD700;
+    border: none;
+    min-height: 35px;
+    font-size: 20px;
+    width: 150px;
+}
+.style-input{
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    outline: none;
+}
+
+/* Dashboard Admin */
+.btn-active{
+    background-color: #ffd700 !important;
+    border-radius: 10px;
+    border: none;
+}
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    width: 150px;
+    cursor: pointer;
+}
+
+.checkbox-containerList {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+    width: 150px;
+    cursor: pointer;
+}
+.checkbox-label {
+    color: #FF6A00; 
+}
+.border-input{
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+}
+.h-custom{
+    padding: 5px;
+}
+.form-check-input{
+    border:1px solid #FF5D00;
+}
+
+/* Keranjang */
+.style-keranjang{
+    padding: 5px;
+    border: 1px solid #FFD700;
+    border-radius: 15px;
+}
+ /* Container tombol */
+ .counter-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    background-color: #FFE4C4; 
+    border: 2px solid #FF7F50; 
+    border-radius: 20px; 
+    padding: 5px 10px;
+}
+
+/* Tombol */
+.counter-btn {
+    background: none;
+    border: none;
+    color: #FF4500; 
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.counter-btn:active {
+    transform: scale(0.9); 
+}
+
+.counter-value {
+    font-size: 16px;
+    color: #FF4500; 
+    font-weight: bold;
+    text-align: center;
+}
+.border-top-bottom{
+    border-top: 1px solid #FF5D00;
+}
+#tambah-produk:active{
+    background-color: #bdb482;
+}
+.btn-arrow {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #4e6174;
+    color: white;
+    font-size: 24px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.5s ease, transform 0.5s ease;
+    position: absolute;
+    z-index: 10;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-arrow:hover {
+    background-color: #efa537;
+    transform: scale(1.1);
+}
+
+.btn-arrow:focus {
+    outline: none;
+}
+
+#prevBtn {
+    left: 20px;
+}
+
+#nextBtn {
+    right: 20px;
+}
+
+.arrow {
+    font-weight: bold;
+}
+.hover-cust:active{
+    background-color: #fff;
+}
+.dropdown-item.disabled {
+    color: #161616; 
+    pointer-events: none; 
+    cursor: not-allowed; 
+    background-color: #c4c5c5; 
+}
+
+.custom-hover:hover{
+    background-color: #f2f3f3 !important;
+    color: #FF5D00;
+}
+.custom-hover:active{
+    color: #161616 !important;
+}
+
+
+/* Tombol dasar */
+.btn-order {
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 5px; 
+    color: #FF5D00;
+    font-size: 16px;
+    font-weight: normal; 
+    transition: color 0.3s ease, font-weight 0.3s ease; 
+}
+
+.btn-order::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ff5e00e4; 
+    transform: scaleX(0); 
+    transform-origin: bottom center; 
+    transition: transform 0.3s ease; 
+}
+
+/* Tombol aktif */
+.btn-order.active {
+    color: #ff5e00e4; 
+    font-weight: bold; 
+}
+
+.btn-order.active::after {
+    transform: scaleX(1);
+}
+
+/* Tombol hover */
+.btn-order:hover {
+    color: #ff5e00e4; 
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CSS Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- CSS Style -->
+     <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row my-5 d-flex flex-row justify-content-evenly">
+            <div class="col-6 my-5">
+                <img src="img/Hero-img.png" style="width: 500px;" alt="">
+                <h1 class="fs-4 mt-5 text-uppercase text-orange" style="font-weight: 900;">Belanja Jajanan Jadi Mudah dan Cepat, 
+                    seperti di Warung Tetangga!</h1>
+                <p>Dijamin cepat, aman, dan selalu segar.<br>
+                    Warung Mama Yuda, solusi ngemil tanpa ribet!
+                </p>
+            </div>
+            <div class="col-5 px-4 d-flex flex-column justify-content-center" style="border: 3px solid #ff5d00; border-radius: 10px; width: 534px;">
+                <div class="logo text-center my-4">
+                    <img src="img/logo.png" alt="Logo">
+                </div>
+                <form action="/api/registrasi" method="POST" id="form-1">
+                    <div class="mt-3">
+                        <input type="text" name="nama" class="form-control login-style" placeholder="Nama" required>
+                    </div>
+                    <div class="mt-3">
+                        <input type="email" name="email" class="form-control login-style" placeholder="Email" required>
+                    </div>
+                    <div class="mt-4">
+                        <input type="tel" name="no_phone" class="form-control login-style" placeholder="Nomor Handphone" required pattern="^\d{10,15}$" title="Nomor handphone harus terdiri dari 10-15 digit angka">
+                    </div>
+                    <div class="mt-4">
+                        <textarea name="alamat" class="form-control login-style" placeholder="Alamat" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 my-5 login-style2" id="buttonNext">Next</button>
+                </form>
+                
+                <form action="/api/registrasi" id="form-2" method="POST" style="display: none;">
+                    <div class="alert alert-danger my-3" role="alert" id="alert" style="display: none; color: red;">
+                        Password tidak Match!
+                    </div>
+                    <div class="mt-4">
+                        <input type="text" name="username" class="form-control login-style" placeholder="Username" required minlength="5" maxlength="20">
+                    </div>
+                    <div class="mt-4">
+                        <input type="password" name="password" class="form-control login-style" placeholder="Password" required minlength="8" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password harus terdiri dari minimal 8 karakter, termasuk angka, huruf besar, dan huruf kecil">
+                    </div>
+                    <div class="mt-4">
+                        <input type="password" name="confirm_password" class="form-control login-style mb-5" placeholder="Ulangi Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 my-5 login-style2" id="buttonRegister">Daftar</button>
+                </form>                             
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/registrasiFe.js"></script>
+</body>

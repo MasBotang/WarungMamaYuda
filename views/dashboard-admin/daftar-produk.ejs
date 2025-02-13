@@ -1,0 +1,56 @@
+
+<!-- Sidebar -->
+<div class="col-3 d-flex flex-column text-center" style="border-right: 2px solid #FFD700;">
+    <div class="d-flex flex-column align-items-start ms-5">
+        <a href="/dashboard-admin" class="text-orange fw-bold mt-5 bg-transparent p-2" style="text-decoration: none; border: none; min-width: 135px;" id="btn-daftar-pesanan">Daftar Pesanan</a>
+        <a href="/daftar-produk" class="text-orange fw-bold mt-5 bg-transparent p-2 btn-active" style="text-decoration: none; border: none; min-width: 135px;" id="btn-daftar-produk">Daftar Produk</a>
+        <a href="/tambah-produk" class="text-orange fw-bold mt-5 bg-transparent p-2" style="text-decoration: none; border: none; min-width: 135px;" id="btn-tambah-produk">Tambah Produk</a>
+    </div>
+</div>
+
+<!-- Content Daftar Produk  -->
+<div class="col-9 mb-5 pb-5" id="daftar-produk">
+    <div class="row mb-4 mt-5 d-flex flex-row justify-content-evenly ms-5">
+        <div class="col-4 text-orange text-center"><strong>INFO PRODUK</strong></div>
+        <div class="col-2 text-orange text-center"><strong>HARGA</strong></div>
+        <div class="col-2 text-orange text-center"><strong>STOK</strong></div>
+        <div class="col-1 text-orange text-center"><strong>AKTIF</strong></div>
+    </div>
+
+    <!-- Select All Checkbox -->
+    <div class="checkbox-container ms-5 mt-4 d-flex align-items-center">
+        <input type="checkbox" id="selectAll" class="form-check-input mx-2 my-auto">
+        <label for="selectAll" class="form-check-label text-orange" style="cursor: pointer;">Pilih Semua</label>
+    </div>
+
+    <!-- Product List Section -->
+    <div id="produk-list-container" class="d-flex flex-column">
+        <!-- Loop for Products (from server-side code) -->
+        <% if (produk.length > 0) { %>
+            <% produk.forEach(function(produk) { %>
+                <div class="row ms-5 d-flex flex-row justify-content-evenly align-items-center mt-3 product-style"
+                    style="background-color: #FFF1C1; border-radius: 10px; min-height: 100px;">
+                    <!-- Info Produk -->
+                    <div class="col-4 d-flex align-items-center">
+                        <input type="checkbox" class="form-check-input me-3">
+                        <img src="<%= produk.foto_path %>" alt="Produk" class="img-thumbnail" style="width: 50px; height: 50px;">
+                        <span class="ms-3"><%= produk.nama %></span>
+                    </div>
+                    <!-- Harga -->
+                    <div class="col-2 text-center"><%= produk.harga %></div>
+                    <!-- Stok -->
+                    <div class="col-2 text-center"><%= produk.stok %></div>
+                    <!-- Aktif -->
+                    <div class="col-1 text-center">
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <p>Belum ada produk yang tersedia.</p>
+        <% } %>
+    </div>
+</div>

@@ -1,0 +1,157 @@
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container mt-3">
+            <a class="navbar-brand">
+                <img src="/img/logo.png" style="width: 150px;" alt="Logo">
+            </a>
+            <form class="d-flex input-group mx-5" role="search">
+                <!-- Input search -->
+                <input class="form-control input-border" type="search" placeholder="Cari Jajanan ..." aria-label="Search">
+                <!-- Button with search icon -->
+                <button class="btn icon-border" type="submit">
+                    <i class="fa-solid fa-magnifying-glass" style="color: #FF5D00;"></i>
+                </button>
+            </form>
+            <div class="d-flex justify-content-center align-items-center">
+                <!-- Icon Love -->
+                <a href="/favorite" class="btn position-relative mx-1 text-center">
+                    <img src="/img/icon-heart.png" alt="Heart Icon" style="width: 35px;">
+                    <span class="position-absolute top-50 start-80 translate-middle badge rounded-pill bg-icon" style="font-size: 10px;">99+</span>
+                </a>
+                <!-- Icon Shopping Cart -->
+                <a href="/keranjang" class="btn position-relative mx-1 text-center">
+                    <img src="/img/icon-shoppingCart.png" alt="Shopping Cart Icon" style="width: 35px;">
+                    <span class="position-absolute top-50 start-80 translate-middle badge rounded-pill bg-icon" style="font-size: 10px;">
+                        <%= orderCount %>
+                    </span>
+                </a>                
+                <!-- Profile Section -->
+                <button class="btn d-flex flex-row justify-content-center align-items-center mx-1 text-center" onclick="window.location.href='/profileUsers';">
+                    <img src="/img/foto-profile.png" alt="Profile Picture" class="rounded-circle" style="width: 40px;">
+                </button>
+            </div>            
+        </div>
+    </nav>
+</header>
+<main>
+    <section>
+        <div class="container mb-5 pb-5">
+            <h1 class="Nunito my-5 fs-3 fw-bold">Keranjang</h1>
+             <!-- SelectAll -->
+             <div class="checkbox-container mt-5 mx-start" >
+                <input type="checkbox" id="selectAll" class="form-check-input mx-2 my-auto">
+                <label for="selectAll" class="form-check-label text-orange" style="cursor: pointer;">Pilih Semua</label>
+            </div>
+            <div class="row d-flex flex-row justify-content-between align-items-start mb-5 mt-2">
+                <!-- Bagian Produk -->
+                <div class="col-8" id="list-produk">
+                    <!-- Header Daftar Produk -->
+                    <div class="row d-flex flex-row justify-content-evenly align-items-center py-4" 
+                         style="background-color: #FFF1C1; border-radius: 10px 10px 0px 0px; min-height: 50px;">
+                        <div class="col-4 text-orange text-center"><strong>Produk</strong></div>
+                        <div class="col-2 text-orange text-center"><strong>Jumlah</strong></div>
+                        <div class="col-2 text-orange text-center"><strong>Harga</strong></div>
+                    </div>
+                    
+                    <div id="produk-list-container" class="d-flex flex-column">
+                        <% list_orders.forEach(function(produk) { %>
+                        <div class="row py-4 d-flex flex-row justify-content-evenly align-items-center product-style border-top-bottom"
+                             style="background-color: #FFF1C1; border-radius: 0px 0px 10px 10px; min-height: 100px;">
+                            <!-- Info Produk -->
+                            <input type="checkbox" class="form-check-input p-1" data-id="<%= produk.id %>" >
+                            <div class="col-4 d-flex align-items-center">
+                                <img src="<%= produk.foto_path %>" alt="<%= produk.nama %>" class="img-thumbnail" style="width: 65px; height: 65px;">
+                                <span class="ms-3"><%= produk.nama %></span>
+                            </div>
+                            <!-- Jumlah -->
+                            <div class="col-2 text-center me-5">
+                                <span class="style-keranjang">
+                                    <button class="counter-btn decrement-btn" data-id="<%= produk.id %>">-</button>
+                                    <span class="counter-value" id="counter-<%= produk.id %>"><%= produk.jumlah %></span>
+                                    <button class="counter-btn increment-btn" data-id="<%= produk.id %>">+</button>
+                                </span>
+                            </div>
+                            <!-- Harga -->
+                            <div class="col-2 text-center me-3">Rp <span id="harga-<%= produk.id %>"><%= produk.harga %></span></div>
+                        </div>
+                        <% }); %>
+                    </div>
+                </div>
+                
+                <div class="col-8 d-none" id="pengiriman">
+                    <div class="container pt-3" style="background-color: #FFF1C1; border-radius: 10px; min-height: 150px;" >
+                        <div class="col d-flex flex-column justify-content-center">
+                            <h2 class="fs-5 ms-2 Nunito" style="color: rgb(77, 77, 78);">Alamat Pengiriman</h2>
+                            <p class="d-flex mt-2">
+                                <span class="material-symbols-outlined me-2">
+                                    location_on
+                                </span>
+                                <%= user.nama %> - <%= user.alamat %>
+                                <p class="ms-2"><%= user.no_phone %></p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="container mt-4 pb-5" style="background-color: #FFE5B4; border-radius: 10px; padding: 20px; min-height: 150px;">
+                        <!-- Baris Produk -->
+                        <% list_orders.forEach(function(produk) { %>
+                        <div class="row d-flex align-items-center my-3 px-4">
+                            <div class="col-auto">
+                                <img src="<%= produk.foto_path %>" alt="<%= produk.nama %>" class="img-thumbnail" style="width: 65px; height: 65px;">
+                            </div>
+                            <div class="col">
+                                <h6> <%= produk.nama %> </h6>
+                                <span> <%= produk.jumlah %>  x Rp <%= produk.harga %> </span>
+                            </div>
+                            <div class="col-auto">
+                                <% const total = produk.jumlah * produk.harga; %>
+                                <span class="fw-bold"> Rp <%= total.toLocaleString('id-ID') %> </span>
+                            </div>
+                        </div>
+                        <% }) %>
+                        <!-- Tombol Pilih Pengiriman -->
+                        <div class="row mt-5">
+                            <div class="col mt-3">
+                                <div class="dropdown">
+                                    <button class="btn w-100 dropdown-toggle" type="button" id="dropdownPengiriman" aria-expanded="false" style="background-color: #FFD700; color: #FF5D00; font-weight: bold;">
+                                        Pilih Pengiriman
+                                        <i class="fa fa-chevron-down"></i> 
+                                    </button>
+                                    <ul class="dropdown-menu w-100" aria-labelledby="dropdownPengiriman">
+                                        <li><a class="dropdown-item text-center hover-cust fw-bold" href="#" style="color: #FF5D00;">Ambil Sendiri</a></li>
+                                        <li><a class="dropdown-item text-center hover-cust disabled" href="#" style="font-weight: bold; width: 100%;" >Diantar</a></li>
+                                    </ul>                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bagian Total -->
+                <div class="col-4">
+                    <div class="container p-3" style="background-color: #FFF1C1; border-radius: 10px; min-height: 150px;">
+                        <div class="row d-flex justify-content-between align-items-center m-2">
+                            <div class="col">
+                                <span><strong>Total</strong></span>
+                            </div>
+                            <div class="col text-end">
+                                <span class="text-orange"><strong>
+                                    Rp <%= list_orders.reduce((total, produk) => total + produk.harga * produk.jumlah, 0).toLocaleString() %>
+                                </strong></span>
+                            </div>
+                        </div>
+                        <!-- Tombol Checkout -->
+                        <div class="row mt-4 pt-5" style="border-top: 1px solid #FF5D00;">
+                            <button id="checkout" class="btn btn-orange w-50 mx-auto">Checkout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+            </div>
+        </div>         
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/keranjangFe.js"></script>
+</main>
+
+    
+
